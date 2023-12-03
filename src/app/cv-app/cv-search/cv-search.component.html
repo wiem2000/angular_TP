@@ -1,0 +1,22 @@
+<input type="text" [formControl]="searchControl" class="form-control"  placeholder="Chercher un CV" />
+<ol>
+    <li *ngFor="let cv of searchList$ | async " >
+      
+        
+<div  (click)="onSelectCv(cv)">
+    <img
+      class="rounded-circle"
+      [style.height] = "height + 'px'"
+      src="assets/images/{{ cv.path | defaultImage }}"
+      alt="{{ cv.name }}"
+    />
+    <span [style.fontSize]="fontSize + 'px'">
+
+    {{ cv.firstname | titlecase }} {{ cv.name | titlecase }}</span>
+</div>
+
+        
+
+
+    </li>
+</ol>

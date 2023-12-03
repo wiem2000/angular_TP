@@ -1,0 +1,12 @@
+<div *ngIf="title !== '' " class="d-flex align-items-start p-3">
+    <img
+      class="rounded-circle p-0"
+      [style.width]="height + 'px'"
+      [style.height]="height + 'px'"
+      src="{{path}}"
+      alt="{{ title }}"
+    />
+    <div [style.fontSize]="fontSize + 'px'" class="pt-3">
+      {{ title }}
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+
+
+<div class="container mt-5">
+<div>
+
+
+    <h2>Mini Word </h2>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            Couleur du texte : <input  type="color" #colorInput placeholder="Couleur du texte" (input)="changeColor(colorInput.value)">
+        </div>
+        <div class="col">
+           Taille du texte : <input type="number" #sizeInput   (input)="changeSize(sizeInput.value)">
+        </div>
+        <div class="col">
+            Police : <select #fontSelect (change)="changeFontFamily(fontSelect.value)">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Tahoma">Tahoma</option>
+               
+              </select>
+        </div>
+    </div>
+
+    
+   
+
+
+
+
+<p class="mt-5" [ngStyle]="{'color':myColor,'font-family':myFont,'font-size':mySize}">
+Hello ! This is my text
+</p>
+</div>
+
+
+<div class="mt-5">
+<h2> Eciture Arc en ciel</h2>
+<hr>
+
+<input type="text" appRainbow placeholder="Écriture Arc-en-ciel">
+
+</div>
+
+
+</div>
+
+

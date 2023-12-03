@@ -1,0 +1,22 @@
+<div *ngIf="(products$ |async) as products" class="container">
+
+    <div class="d-flex justify-content-end my-5">
+        <button class="btn btn-success" (click)="showMore()">Load More</button>
+    </div>
+
+
+
+    <div class="alert alert-info mt-2">
+        Nombre de produits: {{ products?.length }}
+    </div>
+
+
+    <div class="row">
+        <div class="col-4" *ngFor="let product of products">
+            <app-product-item [title]="product.title" [path]="product.thumbnail" [height]="150" [fontSize]="20">
+            </app-product-item>
+        </div>
+    </div>
+
+    
+</div>

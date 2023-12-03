@@ -1,0 +1,20 @@
+
+<div class="container">
+
+
+<p>master-details works!</p>
+
+<h4 class="mt-5"> Liste des cvs</h4>
+<hr>
+
+<div class="row">
+  <app-cv-list [cvs]="cvs$ | async" (selectCv)="onSelectCv($event)" ></app-cv-list>
+</div>
+
+
+<div class="row" >
+    <router-outlet></router-outlet>
+</div>
+
+
+</div>

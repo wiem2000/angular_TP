@@ -1,0 +1,50 @@
+<div class="container mt-5">
+
+  <app-cv-search></app-cv-search>
+
+  <div *ngIf="cv$ | async as cv">
+
+    <h4 class="m-y-2">Cv de {{ cv.firstname }} {{ cv.name }}</h4>
+
+    <hr>
+
+    <div class="card">
+      <div class="d-flex justify-content-center">
+        <img width="150px" height="150px" src="assets/images/{{ cv.path | defaultImage }}" alt="{{ cv.name }}" />
+      </div>
+
+      <div class="card-body">
+
+        <table class="table table-hover table-striped">
+          <tbody>
+            <tr>
+              <td><strong>Name : </strong> {{ cv.name }}</td>
+            </tr>
+            <tr>
+              <td><strong>Firstname : </strong> {{ cv.firstname }}</td>
+            </tr>
+            <tr>
+              <td><strong>Job : </strong> {{ cv.job }}</td>
+            </tr>
+            <tr>
+              <td><strong>Age : </strong>{{ cv.age }} </td>
+            </tr>
+            <tr>
+              <td><strong>Cin : </strong> {{ cv.cin}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-footer text-center">
+        <button  *ngIf="authentificationService.isLoggedIn$ | async " class="btn btn-danger mt-3" (click)="deleteCv()">Supprimer le CV</button>
+      
+        <a  *ngIf="authentificationService.isLoggedIn$ | async " class="btn btn-warning mt-3" [routerLink]="'/cv-update/' + cv.id">Modifier le CV</a>
+      
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

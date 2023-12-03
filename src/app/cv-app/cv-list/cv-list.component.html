@@ -1,0 +1,28 @@
+
+<ol class="list-group">
+  <div *ngIf="juniorCvs.length!=0">
+    <li [ngClass]="{'list-group-item-primary': cv==selectedCv }"
+     
+
+      *ngFor="let cv of (selectedTab === 'junior' ? juniorCvs : seniorCvs) " 
+      class="list-group-item" >
+      <app-cv-item (selectCv)="onSelectCv($event)" [cv]="cv"></app-cv-item>
+    </li>
+
+  </div>
+
+
+  <div *ngIf="juniorCvs.length==0">
+    <li [ngClass]="{'list-group-item-primary': cv==selectedCv }"
+     
+
+      *ngFor="let cv of cvs " 
+      class="list-group-item" >
+      <app-cv-item (selectCv)="onSelectCv($event)" [cv]="cv"></app-cv-item>
+    </li>
+
+  </div>
+
+
+
+</ol>

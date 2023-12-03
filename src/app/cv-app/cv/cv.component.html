@@ -1,0 +1,46 @@
+
+<div class="container">
+
+  
+
+
+<div class="row mt-5">
+    <div class="col">
+       <h4>Liste des Cvs :</h4>
+
+       <app-cv-search></app-cv-search>
+
+      
+
+      <ul class="nav nav-tabs mt-4" >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  (click)="switchTab('junior')" [class.active]="currentTab === 'junior'" >Juniors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  (click)="switchTab('senior')" [class.active]="currentTab === 'senior'" >Seniors</a>
+        </li>
+        
+      </ul>
+
+      <app-cv-list  (selectCv)="onSelectCv($event)"  [juniorCvs]="juniorCvs"
+      [seniorCvs]="seniorCvs"
+      [selectedTab]="currentTab" [cvs]="cvs"></app-cv-list>
+    </div>
+    <div class="col">
+        <app-cv-detail [cv]="selectedCv"></app-cv-detail>
+    </div>
+  </div>
+
+  <div class="alert alert-warning mt-5" role="alert" *ngIf="">
+    This is a warning alert—check it out!
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+       <h4>Liste des Embauchés : </h4>
+      <app-embauche-list [embauches]="embauches"></app-embauche-list>
+    </div>
+    
+  </div>
+
+</div>
